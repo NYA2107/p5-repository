@@ -13,11 +13,14 @@ function run(Draw){
     Draw.setPoint(); 
 } 
 
-
 function keyPressed(){
-  let s = height-(mouseY*2);
   let x = mouseX;
-  let y = mouseY+s;
+  //formula -> fakeY = height - realY
+  //there comes a cursor with real Y point,so it's mirroring. in this point the mouseY is fake.
+  //mouseY here is fake because it's influenced by the formula in the Class Point
+  //to get the original y when the cursor come in, we use can use the formula :
+  //fakeY = realY - height --> realY = height - fakeY
+  let y = height - mouseY; 
   if(key == 'A'){
     A.makePoint(x,y,sizePoint,"A");
   }
@@ -32,14 +35,16 @@ function keyPressed(){
   }
 }
 
+function mPoint(Point,x,y,name){
+	Point.makePoint(x+width/2,y+height/2,sizePoint,name);
+}
+
 function setup() {
   // put setup code here
-  canvas = createCanvas(1000, 460);
+  canvas = createCanvas(1000, 480);
   canvas.parent('app');
-  // A.makePoint(100,100,sizePoint,"A");
-  // A.makePoint(100,200,sizePoint,"A");
-  // A.makePoint(300,200,sizePoint,"A");
-  
+  mPoint(A,100,100,"A"); 
+  console.log("mPoint(A,100,100,'A')");
 }
 
 function draw() {
@@ -50,5 +55,6 @@ function draw() {
   run(B);
   run(C);
   run(D);
-  sup.showCursor();	
+  sup.showCursor();
+  sup.showXY();	
 }

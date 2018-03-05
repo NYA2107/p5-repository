@@ -29,6 +29,7 @@ class Point{
      fill(153, 255, 241);
      textSize(16);
      noStroke();
-     text(this.name + " : (" + parseInt(this.x) + ", " + parseInt(height - this.y) + ")" ,this.x+this.size ,this.y);
+     //height is always subtracted by Y just for captioning reason
+     text(this.name + " : (" + parseInt(this.x-(width/2)) + ", " + parseInt((height - this.y)-(height/2)) + ")" ,this.x+this.size ,this.y);
   }
 }
