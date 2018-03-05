@@ -18,7 +18,7 @@ function keyPressed(){
   //formula -> fakeY = height - realY
   //there comes a cursor with real Y point,so it's mirroring. in this point the mouseY is fake.
   //mouseY here is fake because it's influenced by the formula in the Class Point
-  //to get the original y when the cursor come in, we use can use the formula :
+  //to get the original y when the cursor come in, we can use the formula :
   //fakeY = realY - height --> realY = height - fakeY
   let y = height - mouseY; 
   if(key == 'A'){
