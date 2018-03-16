@@ -11,7 +11,6 @@ function addVector() {
   	'<input id="vector-y-' + totalLine + '" type="number" name="" value="" placeholder="Coordinate y">'
   	);
   temp.id('vector-card');
- 
   parent.child(temp);
 }
 
@@ -41,8 +40,6 @@ function setup() {
 
 function draw() {
   // put drawing code here
-
-
   background(32, 50, 66);
   fill(255);
   loop1();
