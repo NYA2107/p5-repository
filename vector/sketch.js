@@ -32,6 +32,25 @@ function loop1(){
 	}
 }
 
+class Vector{
+
+  constructor(x,y){
+    this.startX = 0;
+    this.startY = 0;
+    this.x = x;
+    this.y = y;
+  }
+
+  drawVector(){
+    line(this.startX, this.startY, this.x,this.y);
+  }
+
+}
+
+class VectorCollection{
+  
+}
+
 function setup() {
   // put setup code here
   canvas = createCanvas(1000, 480);
