@@ -1,55 +1,27 @@
 var canvas;
-var totalLine = 0;
-var Vx;
-var Vy;
-
-function addVector() {
-  totalLine += 1;
-  var parent = select('#controller-container')
-  var temp = createDiv(
-  	'<input id="vector-x-' + totalLine + '" type="number" name="" value="" placeholder="Coordinate x">' + 
-  	'<input id="vector-y-' + totalLine + '" type="number" name="" value="" placeholder="Coordinate y">'
-  	);
-  temp.id('vector-card');
-  parent.child(temp);
-}
+var vector = new VectorController();
+var click = 0;
 
 
-function loop1(){
-	if(totalLine == 0){
-		return;
+///////////////////////////////
+var sum = new SumVector();
+var tooglesum = 0;
+
+function toogleSum(){
+	tooglesum++;
+	if(tooglesum % 2 == 0){
+		sum.hide();
 	}
 	else{
-		Vx = document.getElementById('vector-x-1');
-  		Vy = document.getElementById('vector-y-1');
-		if(Vx.value == null || Vy.value == null){
-			return;
-		}
-		else{
-  			ellipse(Vx.value, Vy.value, 20,20);
-		}
-		
+		sum.show(vector);
 	}
 }
-
-class Vector{
-
-  constructor(x,y){
-    this.startX = 0;
-    this.startY = 0;
-    this.x = x;
-    this.y = y;
-  }
-
-  drawVector(){
-    line(this.startX, this.startY, this.x,this.y);
-  }
-
+///////////////////////////////
+function callVector(){
+	vector.addVector();
 }
+//////////////////////////////
 
-class VectorCollection{
-  
-}
 
 function setup() {
   // put setup code here
@@ -61,5 +33,14 @@ function draw() {
   // put drawing code here
   background(32, 50, 66);
   fill(255);
-  loop1();
+
+  push();
+  translate(width/2,height/2);
+
+  sum.loopSum();
+  stroke(255);
+  vector.loopVector();
+
+  pop();
+
 }

@@ -11,57 +11,119 @@
           font-family: Arial, Helvetica, sans-serif;
           margin: 0;
         }
+        h4{
+          color: white;
+        }
+        input{
+          transition: all 0.4s;
+          margin:5px;
+        }
+        input:focus{
+          transform: scale(1.1);
+        }
+        .mainContainer{
+          display: flex;
+          flex-wrap: wrap;
+        }
         .container{
+          width: 100%;
           padding: 10px;
           display: flex;
+          height: 50px;
           justify-content: center;
           align-items: center;
-          height: auto;
-          background-color: rgb(131, 145, 168);
+          background-color: rgb(96, 119, 140);
           flex-wrap: wrap;
+          transition: all 0.2s;
         }
         .button{
           display: flex;
           align-items: center;
+          justify-content: center;
           border-radius: 5px;
-          width: auto;
+          width: 200px;
           height: 20px;
           background-color:rgb(32, 50, 66);
           padding: 5px;
           color: white;
           cursor: pointer;
-          margin: 2px;
-          transition: all 0.2s;
+          margin: 8px;
+          transition: all 0.4s;
         }
         .button:hover{
-          padding:10px;
-          font-size: 25px;  
+          transform: scale(1.1);  
         }
         .button:active{
-          padding:5px;
-          font-size: 20px;  
+          transform: scale(0.9); 
         }
         #app-container{
           background-color: black;
+          height: 480px;
         }
-
+        #vector-card{
+          background-color:rgb(32, 50, 66);
+          width: 200px;
+          padding: 3px;
+          margin : 5px;
+          height : 150px;
+          border-radius: 6px;
+          transition: all 0.7s;
+        }
+        #vector-card:hover{
+          transform: scale(1.05);
+        }
+        #controller-container{
+          padding-top: 4px; 
+          height: 170px;
+          overflow: auto;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          width: 100%;
+          background-color: rgb(73, 91, 107);
+          transition: all 1s;
+        }
+        .operation{
+          background-color: rgb(96, 119, 140);
+        }
+        .con{
+          padding-top: 4px; 
+          height: 170px;
+          overflow: auto;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          width: 100%;
+          background-color: rgb(73, 91, 107);
+          transition: all 1s;
+        }
 
     </style>
     
   </head>
   <body>
-      <div class="container">
-            <div id="addVectorB" class="button" onclick="addVector()">DRAW VECTOR</div>
-            <div id="sumVectorB" class="button">SUM VECTOR</div>
+     
+      <div class="mainContainer">
+        <div class="container">
+              <div id="addVectorB" class="button" onclick="callVector()">DRAW VECTOR</div>
+        </div>
+
+        <div id="controller-container" class="con">
+          
+        </div>        
       </div>
-      <div id="app-container">
+       <div id="app-container">
           <div id="app"></div>
       </div>
-      
+      <div class="container operation">
+            <div id="sumVectorB" class="button" onclick="toogleSum()">SUM VECTOR</div>
+            <div id="sumVectorB" class="button" onclick="callMultiply()">MULTIPLY WITH SCALAR</div>
+      </div>
 
-      <div id="controller-container" class="container">
+      <div id="operation-container" class="con">
         
       </div>
+      
 
 
 
@@ -71,8 +133,8 @@
         <script src="libraries/addons/p5.dom.min.js"></script>
         <script src="libraries/addons/p5.sound.min.js"></script>
         <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
-        <script language="javascript" type="text/javascript" src="singleLinkedList.js"></script>
-        <script language="javascript" type="text/javascript" src="gui.js"></script>
+        <script language="javascript" type="text/javascript" src="src/vector.js"></script>
+        <script language="javascript" type="text/javascript" src="src/sum.js"></script>
         <script language="javascript" type="text/javascript" src="sketch.js"></script>
         <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
   </body>
