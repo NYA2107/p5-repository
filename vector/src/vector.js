@@ -84,11 +84,22 @@ class VectorOperation{
     var parent = select('#operation-container');
     var temp = createDiv(
     '<h4> MULTIPLY </h4>'+
-    '<input id="vector-x-' + this.totalVector + '" type="number" name="" value="" placeholder="Vector id">' + 
-    '<input id="vector-y-' + this.totalVector + '" type="number" name="" value="" placeholder="Multiplier">'
+    '<input id="vector-m' + '" type="number" name="" value="" placeholder="Vector id">' + 
+    '<input id="scalar-m' + '" type="number" name="" value="" placeholder="Multiplier">'
     );
     temp.id('vector-card');
     parent.child(temp);
+  }
+  drawResult(){
+    this.vectorSelector = select('#vector-m').value();
+    this.scalarSelector = select('#scalar-m').value();
+
+    if(this.vectorSelector >= this.object.totalVector ){
+      
+    }
+    else{
+
+    }
   }
 
 }
