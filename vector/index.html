@@ -14,6 +14,9 @@
         h4{
           color: white;
         }
+        h5{
+          color: white;
+        }
         input{
           transition: all 0.4s;
           margin:5px;
@@ -105,7 +108,7 @@
      
       <div class="mainContainer">
         <div class="container">
-              <div id="addVectorB" class="button" onclick="callVector()">DRAW VECTOR</div>
+              <div id="addVectorB" class="button" onclick="vector.addVector()">DRAW VECTOR</div>
         </div>
 
         <div id="controller-container" class="con">
@@ -117,7 +120,7 @@
       </div>
       <div class="container operation">
             <div id="sumVectorB" class="button" onclick="toogleSum()">SUM VECTOR</div>
-            <div id="sumVectorB" class="button" onclick="callMultiply()">MULTIPLY WITH SCALAR</div>
+            <div id="sumVectorB" class="button" onclick="op.multiplyScalar()">MULTIPLY WITH SCALAR</div>
       </div>
 
       <div id="operation-container" class="con">

@@ -1,9 +1,8 @@
 var canvas;
 var vector = new VectorController();
+var op = new VectorOperation(vector);
 var click = 0;
 
-
-///////////////////////////////
 var sum = new SumVector();
 var tooglesum = 0;
 
@@ -16,11 +15,7 @@ function toogleSum(){
 		sum.show(vector);
 	}
 }
-///////////////////////////////
-function callVector(){
-	vector.addVector();
-}
-//////////////////////////////
+
 
 
 function setup() {

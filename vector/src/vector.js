@@ -73,3 +73,22 @@ class VectorController{
   }
   
 }
+  
+class VectorOperation{
+
+  constructor(object){
+    this.object = object;
+  }
+
+  multiplyScalar(){
+    var parent = select('#operation-container');
+    var temp = createDiv(
+    '<h4> MULTIPLY </h4>'+
+    '<input id="vector-x-' + this.totalVector + '" type="number" name="" value="" placeholder="Vector id">' + 
+    '<input id="vector-y-' + this.totalVector + '" type="number" name="" value="" placeholder="Multiplier">'
+    );
+    temp.id('vector-card');
+    parent.child(temp);
+  }
+
+}
