@@ -1,22 +1,17 @@
 var canvas;
-var vector = new VectorController();
-var op = new VectorOperation(vector);
-var click = 0;
-
-var sum = new SumVector();
-var tooglesum = 0;
-
-function toogleSum(){
-	tooglesum++;
-	if(tooglesum % 2 == 0){
-		sum.hide();
-	}
-	else{
-		sum.show(vector);
-	}
-}
-
-
+var ratio = 20;
+var vectorController = new VectorController(ratio);
+var pointController = new PointController(ratio);
+var lineController = new LineController(ratio);
+var circleController = new CircleController(ratio);
+var shape = new Shape(pointController,ratio);
+var grid = new Grid(ratio);
+var scalarMultiply = new ScalarMultiply(vectorController,ratio);
+var sumVector = new SumVector(vectorController,ratio);
+var crossProduct = new CrossProuct(vectorController,ratio);
+var dotProduct = new DotProduct(vectorController,ratio);
+var translation = new Translation(pointController,lineController,circleController);
+var dilation = new Dilation(pointController,lineController,circleController);
 
 function setup() {
   // put setup code here
@@ -28,14 +23,27 @@ function draw() {
   // put drawing code here
   background(32, 50, 66);
   fill(255);
+  
+  grid.drawGrid(10);
+  translation.loop();
+  dilation.loop();
 
   push();
   translate(width/2,height/2);
 
-  sum.loopSum();
+  dotProduct.drawResult();
+  crossProduct.drawResult();
   stroke(255);
-  vector.loopVector();
-
+  shape.drawResult();
+  vectorController.drawResult();
+  pointController.drawResult();
+  lineController.drawResult();
+  circleController.drawResult();
+  sumVector.drawResult();
+  scalarMultiply.drawResult();
+  
   pop();
+
+  
 
 }

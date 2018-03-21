@@ -1,14 +1,31 @@
 class Vector{
 
-  constructor(x,y){
+  constructor(x,y,ratio){
+    this.ratio = ratio;
     this.startX = 0;
     this.startY = 0;
-    this.x = parseInt(x);
-    this.y = parseInt(y);
+    this.textX = x*1;
+    this.textY = -y;
+    this.x = parseFloat(x)*this.ratio;
+    this.y = parseFloat(y)*this.ratio;
+    this.angle = atan2(this.y,this.x);
+    
   }
+  drawVector(name){
 
-  drawVector(){
+    strokeWeight(2);
     line(this.startX, this.startY, this.x, this.y);
+
+    push();
+
+    translate(this.x,this.y);
+    noStroke();
+    text(name + ": ("+this.textX+","+this.textY+")",5,0);
+    rotate(this.angle);
+    triangle(this.startX,this.startY,this.startX-10,this.startY-5,this.startX-10,this.startY+5);
+
+    pop();
+
   }
 
 }
@@ -16,15 +33,16 @@ class Vector{
 
 class VectorCollection{
 
-  constructor(){
+  constructor(ratio){
     this.list = new Array();
+    this.ratio = ratio;
   }
 
   addVector(x,y){
-    this.list.push(new Vector(x,y));
+    this.list.push(new Vector(x,y,this.ratio));
   }
   updateVector(x,y,i){
-    this.list[i] = new Vector(x,y);
+    this.list[i] = new Vector(x,y,this.ratio);
   }
 
 }
@@ -32,9 +50,11 @@ class VectorCollection{
 class VectorController{
   
 
-  constructor(){
-    this.vectorCol = new VectorCollection();
+  constructor(ratio){
+    this.ratio = ratio
+    this.vectorCol = new VectorCollection(this.ratio);
     this.totalVector = 0;
+    
   }
 
   addVector() {
@@ -54,7 +74,7 @@ class VectorController{
     this.vectorCol.addVector(this.currX,this.currY);
   }
 
-  loopVector(){
+  drawResult(){
     if(this.totalVector == 0){
       return;
     }
@@ -67,39 +87,11 @@ class VectorController{
         this.currY = -this.currY;
 
         this.vectorCol.updateVector(this.currX,this.currY,i);
-        this.vectorCol.list[i].drawVector();
+        fill(255);
+        this.vectorCol.list[i].drawVector("V" + parseInt(i+1));
       } 
     }
   }
   
 }
   
-class VectorOperation{
-
-  constructor(object){
-    this.object = object;
-  }
-
-  multiplyScalar(){
-    var parent = select('#operation-container');
-    var temp = createDiv(
-    '<h4> MULTIPLY </h4>'+
-    '<input id="vector-m' + '" type="number" name="" value="" placeholder="Vector id">' + 
-    '<input id="scalar-m' + '" type="number" name="" value="" placeholder="Multiplier">'
-    );
-    temp.id('vector-card');
-    parent.child(temp);
-  }
-  drawResult(){
-    this.vectorSelector = select('#vector-m').value();
-    this.scalarSelector = select('#scalar-m').value();
-
-    if(this.vectorSelector >= this.object.totalVector ){
-      
-    }
-    else{
-
-    }
-  }
-
-}
