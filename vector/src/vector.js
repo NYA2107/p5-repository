@@ -63,7 +63,9 @@ class VectorController{
     var parent = select('#controller-container');
     var temp = createDiv(
     '<h4> VECTOR '+ this.totalVector + '</h4>'+
-    '<input id="vector-x-' + this.totalVector + '" type="number" name="" value="" placeholder="Coordinate x">' + 
+    '<p>coordinate x</p>'+
+    '<input id="vector-x-' + this.totalVector + '" type="number" name="" value="" placeholder="Coordinate x">' +
+    '<p>coordinate y</p>'+
     '<input id="vector-y-' + this.totalVector + '" type="number" name="" value="" placeholder="Coordinate y">'
     );
     temp.id('vector-card');

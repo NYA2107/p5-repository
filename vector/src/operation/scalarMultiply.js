@@ -11,7 +11,9 @@ class ScalarMultiply{
     var parent = select('#operation-container');
     var temp = createDiv(
     '<h4> MULTIPLY </h4>'+
-    '<input id="vector-m' + '" type="number" name="" value="" placeholder="Vector id">' + 
+    '<p>vector id</p>'+
+    '<input id="vector-m' + '" type="number" name="" value="" placeholder="Vector id">' +
+    '<p>multiplier</p>'+ 
     '<input id="scalar-m' + '" type="number" name="" value="" placeholder="Multiplier">'
     );
     temp.id('vector-card');

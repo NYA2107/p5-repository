@@ -18,7 +18,9 @@ class Translation{
       '<option value="line">Line</option>'+
       '<option value="circle">Circle</option>'+
     '</select>'+
+    '<p>translate x</p>'+
     '<input id="translate-x" type="number" name="" value="" placeholder="Translate X">' +
+    '<p>translate y</p>'+
     '<input id="translate-y" type="number" name="" value="" placeholder="Translate Y">' +
     '<div id="translate" class="button" onclick="translation.drawResult()">TRANSLATE</div>'
     );

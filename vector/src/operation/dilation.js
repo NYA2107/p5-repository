@@ -20,6 +20,7 @@ class Dilation{
     '</select>'+
     '<input id="dilation-x" type="number" name="" value="" placeholder="Base X">' +
     '<input id="dilation-y" type="number" name="" value="" placeholder="Base Y">' +
+    '<p>scale</p>'+
     '<input id="dilation-scale" type="number" name="" value="" placeholder="scale">' +
     '<div id="translate" class="button" onclick="dilation.drawResult()">DILATE</div>'
     );
@@ -63,9 +64,9 @@ class Dilation{
         var y2 = select('#line-y2-'+(i+1)).value()*1;
 
         this.currX1 = ( this.dilationScale*(x1 - this.dilationX) )+ this.dilationX;
-        this.currY1 = ( this.dilationScale*(y1 - this.dilationX) )+ this.dilationX;
+        this.currY1 = ( this.dilationScale*(y1 - this.dilationY) )+ this.dilationY;
         this.currX2 = ( this.dilationScale*(x2 - this.dilationX) )+ this.dilationX;
-        this.currY2 = ( this.dilationScale*(y2 - this.dilationX) )+ this.dilationX;
+        this.currY2 = ( this.dilationScale*(y2 - this.dilationY) )+ this.dilationY;
 
         select('#line-x1-'+(i+1)).value(this.currX1);
         select('#line-y1-'+(i+1)).value(this.currY1);
@@ -83,7 +84,8 @@ class Dilation{
 
         this.currX = ( this.dilationScale*(x - this.dilationX) )+ this.dilationX;
         this.currY = ( this.dilationScale*(y - this.dilationY) )+ this.dilationY;
-        this.diameter = ( this.dilationScale*(diameter - this.dilationY) )+ this.dilationY;
+        this.diameter = this.dilationScale*diameter;
+        // this.diameter = ( this.dilationScale*(diameter - this.dilationY) )+ this.dilationY;
 
         select('#circle-x-'+(i+1)).value(this.currX);
         select('#circle-y-'+(i+1)).value(this.currY);

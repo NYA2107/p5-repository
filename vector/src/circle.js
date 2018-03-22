@@ -62,8 +62,11 @@ class CircleController{
     var parent = select('#controller-container');
     var temp = createDiv(
     '<h4> CIRCLE '+ this.totalCircle + '</h4>'+
-    '<input id="circle-x-' + this.totalCircle + '" type="number" name="" value="" placeholder="Coordinate x">' + 
+    '<p>coordinate x</p>'+
+    '<input id="circle-x-' + this.totalCircle + '" type="number" name="" value="" placeholder="Coordinate x">' +
+    '<p>coordinate y</p>'+ 
     '<input id="circle-y-' + this.totalCircle + '" type="number" name="" value="" placeholder="Coordinate y">' +
+    '<p>diameter</p>'+
     '<input id="diameter' + this.totalCircle + '" type="number" name="" value="" placeholder="Diameter">'
     );
     temp.id('vector-card');

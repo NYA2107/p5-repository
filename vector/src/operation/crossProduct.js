@@ -11,8 +11,11 @@ class CrossProuct{
     var parent = select('#operation-container');
     var temp = createDiv(
     '<h4> CROSS PRODUCT </h4>'+
-    '<input id="vector-cross-1' + '" type="number" name="" value="" placeholder="Vector id">' + 
+    '<p>vector id</p>'+
+    '<input id="vector-cross-1' + '" type="number" name="" value="" placeholder="Vector id">' +
+    '<p>vector id</p>'+ 
     '<input id="vector-cross-2' + '" type="number" name="" value="" placeholder="Vector id">' +
+    '<p>result</p>'+
     '<input id="vector-cross-result' + '" type="number" name="" value="" placeholder="Result">'
     );
     temp.id('vector-card');

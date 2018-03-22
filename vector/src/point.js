@@ -61,7 +61,9 @@ class PointController{
     var parent = select('#controller-container');
     var temp = createDiv(
     '<h4> POINT '+ this.totalPoint + '</h4>'+
+    '<p>coordinate x</p>'+
     '<input id="point-x-' + this.totalPoint + '" type="number" name="" value="" placeholder="Coordinate x">' + 
+    '<p>coordinate x</p>'+
     '<input id="point-y-' + this.totalPoint + '" type="number" name="" value="" placeholder="Coordinate y">'
     );
     temp.id('vector-card');
