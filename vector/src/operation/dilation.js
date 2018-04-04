@@ -22,7 +22,7 @@ class Dilation{
     '<input id="dilation-y" type="number" name="" value="" placeholder="Base Y">' +
     '<p>scale</p>'+
     '<input id="dilation-scale" type="number" name="" value="" placeholder="scale">' +
-    '<div id="translate" class="button" onclick="dilation.drawResult()">DILATE</div>'
+    '<div id="translate" class="button" onclick="dilation.changeResult()">DILATE</div>'
     );
     temp.id('vector-card');
     parent.child(temp);
@@ -42,7 +42,7 @@ class Dilation{
       
   }
 
-  drawResult(){
+  changeResult(){
     if(this.dilationObject == "point"){
       for(var i = 0; i< this.point.totalPoint; i++){
         var x = select('#point-x-'+(i+1)).value()*1;

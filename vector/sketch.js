@@ -12,6 +12,7 @@ var crossProduct = new CrossProuct(vectorController,ratio);
 var dotProduct = new DotProduct(vectorController,ratio);
 var translation = new Translation(pointController,lineController,circleController);
 var dilation = new Dilation(pointController,lineController,circleController);
+var rotation = new Rotation(pointController,lineController,circleController);
 
 function setup() {
   // put setup code here

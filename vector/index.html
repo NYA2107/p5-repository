@@ -85,7 +85,7 @@
           align-items: flex-start;
           align-content: flex-start;
           flex-wrap: wrap;
-          background-color:rgb(32, 50, 66);
+          background-color:rgba(32, 50, 66, 0.8);
           width: 200px;
           padding: 3px;
           margin : 5px;
@@ -126,6 +126,12 @@
           z-index: 1;
 
         }
+        .operation-label{
+          padding:6px;
+          font-weight: bold;
+          color: white;
+          background-color: rgb(34, 58, 76);
+        }
 
         #vector-cross-result{
           margin-top: 10px;
@@ -159,13 +165,18 @@
        <div id="app-container">
           <div id="app"></div>
       </div>
+      <div class="operation-label">VECTOR OPERATION</div>
       <div class="container operation">
             <div id="sumVectorB" class="button" onclick="sumVector.callSum()">SUM VECTOR</div>
             <div id="sumVectorB" class="button" onclick="scalarMultiply.callMultiplyScalar()">MULTIPLY WITH SCALAR</div>
             <div id="sumVectorB" class="button" onclick="crossProduct.callCrossProduct()">CROSS PRODUCT</div>
             <div id="sumVectorB" class="button" onclick="dotProduct.callDotProduct()">DOT PRODUCT</div>
-            <div id="sumVectorB" class="button" onclick="translation.callTranslation()">TRANSLATE</div>
+      </div>
+      <div class="operation-label">GEOMETRY TRANSFORMATION</div>
+      <div class="container operation">
+            <div id="sumVectorB" class="button" onclick="translation.callTranslation()">TRANSLATION</div>
             <div id="sumVectorB" class="button" onclick="dilation.callDilation()">DILATION</div>
+            <div id="sumVectorB" class="button" onclick="rotation.callRotation()">ROTATION</div>
       </div>
 
       <div id="operation-container" class="con">
@@ -185,6 +196,7 @@
         <script language="javascript" type="text/javascript" src="src/operation/dotProduct.js"></script>
         <script language="javascript" type="text/javascript" src="src/operation/translation.js"></script>
         <script language="javascript" type="text/javascript" src="src/operation/dilation.js"></script>
+        <script language="javascript" type="text/javascript" src="src/operation/rotation.js"></script>
         <script language="javascript" type="text/javascript" src="src/point.js"></script>
         <script language="javascript" type="text/javascript" src="src/line.js"></script>
         <script language="javascript" type="text/javascript" src="src/circle.js"></script>

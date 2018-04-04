@@ -12,7 +12,7 @@ class Translation{
     this.called = true;
     var parent = select('#operation-container');
     var temp = createDiv(
-    '<h4> TRANSLATE </h4>'+
+    '<h4> TRANSLATION </h4>'+
     '<select id="translation-object">'+
       '<option value="point">Point/Shape</option>'+
       '<option value="line">Line</option>'+
@@ -22,7 +22,7 @@ class Translation{
     '<input id="translate-x" type="number" name="" value="" placeholder="Translate X">' +
     '<p>translate y</p>'+
     '<input id="translate-y" type="number" name="" value="" placeholder="Translate Y">' +
-    '<div id="translate" class="button" onclick="translation.drawResult()">TRANSLATE</div>'
+    '<div id="translate" class="button" onclick="translation.changeResult()">TRANSLATE</div>'
     );
     temp.id('vector-card');
     parent.child(temp);
@@ -41,7 +41,7 @@ class Translation{
       
   }
 
-  drawResult(){
+  changeResult(){
     if(this.translationObject == "point"){
       for(var i = 0; i< this.point.totalPoint; i++){
         this.currX = (select('#point-x-'+(i+1)).value()*1)+this.translateX;
