@@ -22,7 +22,7 @@ class Dilation{
     '<input id="dilation-y" type="number" name="" value="" placeholder="Base Y">' +
     '<p>scale</p>'+
     '<input id="dilation-scale" type="number" name="" value="" placeholder="scale">' +
-    '<div id="translate" class="button" onclick="dilation.changeResult()">DILATE</div>'
+    '<div id="but" class="button" onclick="dilation.changeResult()">DILATE</div>'
     );
     temp.id('vector-card');
     parent.child(temp);

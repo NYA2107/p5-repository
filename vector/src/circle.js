@@ -14,15 +14,13 @@ class Circle{
   drawCircle(name){
 
     strokeWeight(2);
-    fill(255,255,255,50);
     ellipse(this.x, this.y,this.d,this.d);
 
     push();
-    fill(255);
+    fill(178, 249, 177);
     translate(this.x,this.y);
     noStroke();
     text(name + ": ("+this.textX+","+this.textY+")"+" d: "+ this.d/ratio,this.d/2+3,0);
-
     pop();
 
   }
@@ -92,7 +90,8 @@ class CircleController{
         this.currY = -this.currY;
 
         this.circleCol.updateCircle(this.currX,this.currY,this.diameter,i);
-        fill(255);
+        //fill(255);
+        fill(255,255,255,50);
         this.circleCol.list[i].drawCircle("C" + parseInt(i+1));
       } 
     }

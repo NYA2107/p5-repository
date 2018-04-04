@@ -85,7 +85,7 @@
           align-items: flex-start;
           align-content: flex-start;
           flex-wrap: wrap;
-          background-color:rgba(32, 50, 66, 0.8);
+          background-color:rgb(32, 50, 66);
           width: 200px;
           padding: 3px;
           margin : 5px;
@@ -143,7 +143,7 @@
         #vector-dot-result{
           margin-top: 10px;
         }
-        #translate{
+        #but{
           width :150px;
           background-color: rgb(14, 23, 38);
         }
@@ -159,7 +159,7 @@
               <div class="button" onclick="pointController.addPoint()">DRAW POINT</div>
               <div class="button" onclick="lineController.addLine()">DRAW LINE</div>
               <div class="button" onclick="circleController.addCircle()">DRAW CIRCLE</div>
-              <div class="button" onclick="shape.callShape()">MAKE SHAPE</div>
+              <div class="button" onclick="generateShape()">MAKE SHAPE</div>
         </div>
 
         <div id="controller-container" class="con">
@@ -181,6 +181,7 @@
             <div id="sumVectorB" class="button" onclick="translation.callTranslation()">TRANSLATION</div>
             <div id="sumVectorB" class="button" onclick="dilation.callDilation()">DILATION</div>
             <div id="sumVectorB" class="button" onclick="rotation.callRotation()">ROTATION</div>
+            <div id="sumVectorB" class="button" onclick="reflection.callReflection()">REFLECTION</div>
       </div>
 
       <div id="operation-container" class="con">
@@ -205,6 +206,7 @@
         <script language="javascript" type="text/javascript" src="src/line.js"></script>
         <script language="javascript" type="text/javascript" src="src/circle.js"></script>
         <script language="javascript" type="text/javascript" src="src/grid.js"></script>
+        <script language="javascript" type="text/javascript" src="src/operation/reflection.js"></script>
         <script language="javascript" type="text/javascript" src="sketch.js"></script>
         <!-- ///////////////////////////////////////////////////////////////////////////////////////////// -->
   </body>

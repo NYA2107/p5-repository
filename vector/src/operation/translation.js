@@ -22,7 +22,7 @@ class Translation{
     '<input id="translate-x" type="number" name="" value="" placeholder="Translate X">' +
     '<p>translate y</p>'+
     '<input id="translate-y" type="number" name="" value="" placeholder="Translate Y">' +
-    '<div id="translate" class="button" onclick="translation.changeResult()">TRANSLATE</div>'
+    '<div id="but" class="button" onclick="translation.changeResult()">TRANSLATE</div>'
     );
     temp.id('vector-card');
     parent.child(temp);

@@ -116,6 +116,7 @@ class Shape{
       }
       else{
         fill(255,255,255,50);
+        strokeWeight(2);
         beginShape();
           for(var i = 0; i< this.object.totalPoint; i++){
             this.currX = select('#point-x-'+(i+1)).value();
@@ -125,7 +126,6 @@ class Shape{
             this.currY = -this.currY*ratio;
             vertex(this.currX,this.currY);
           }
-          vertex(this.currX,this.currY);
           vertex(select('#point-x-1').value()*ratio,-select('#point-y-1').value()*ratio);
         endShape();
       }
@@ -134,4 +134,3 @@ class Shape{
   }
 
 }
-  
