@@ -4,28 +4,31 @@ class Dilation{
     this.point = point;
     this.line = line;
     this.circle = circle;
-    this.toogle = 0;
+    this.toogleCalled = 0;
     this.called = false;
   }
 
   callDilation(){
+    this.toogleCalled++;
+    if(this.toogleCalled == 1){
+      var parent = select('#operation-container');
+      var temp = createDiv(
+      '<h4> DILATION </h4>'+
+      '<select id="dilation-object">'+
+        '<option value="point">Point/Shape</option>'+
+        '<option value="line">Line</option>'+
+        '<option value="circle">Circle</option>'+
+      '</select>'+
+      '<input id="dilation-x" type="number" name="" value="" placeholder="Base X">' +
+      '<input id="dilation-y" type="number" name="" value="" placeholder="Base Y">' +
+      '<p>scale</p>'+
+      '<input id="dilation-scale" type="number" name="" value="" placeholder="scale">' +
+      '<div id="but" class="button" onclick="dilation.changeResult()">DILATE</div>'
+      );
+      temp.id('vector-card');
+      parent.child(temp);
+    }
     this.called = true;
-    var parent = select('#operation-container');
-    var temp = createDiv(
-    '<h4> DILATION </h4>'+
-    '<select id="dilation-object">'+
-      '<option value="point">Point/Shape</option>'+
-      '<option value="line">Line</option>'+
-      '<option value="circle">Circle</option>'+
-    '</select>'+
-    '<input id="dilation-x" type="number" name="" value="" placeholder="Base X">' +
-    '<input id="dilation-y" type="number" name="" value="" placeholder="Base Y">' +
-    '<p>scale</p>'+
-    '<input id="dilation-scale" type="number" name="" value="" placeholder="scale">' +
-    '<div id="but" class="button" onclick="dilation.changeResult()">DILATE</div>'
-    );
-    temp.id('vector-card');
-    parent.child(temp);
 
   }
 

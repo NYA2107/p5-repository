@@ -4,28 +4,31 @@ class Translation{
     this.point = point;
     this.line = line;
     this.circle = circle;
-    this.toogle = 0;
+    this.toogleCalled = 0;
     this.called = false;
   }
 
   callTranslation(){
+    this.toogleCalled++;
+    if(this.toogleCalled == 1){
+      var parent = select('#operation-container');
+      var temp = createDiv(
+      '<h4> TRANSLATION </h4>'+
+      '<select id="translation-object">'+
+        '<option value="point">Point/Shape</option>'+
+        '<option value="line">Line</option>'+
+        '<option value="circle">Circle</option>'+
+      '</select>'+
+      '<p>translate x</p>'+
+      '<input id="translate-x" type="number" name="" value="" placeholder="Translate X">' +
+      '<p>translate y</p>'+
+      '<input id="translate-y" type="number" name="" value="" placeholder="Translate Y">' +
+      '<div id="but" class="button" onclick="translation.changeResult()">TRANSLATE</div>'
+      );
+      temp.id('vector-card');
+      parent.child(temp);
+    }
     this.called = true;
-    var parent = select('#operation-container');
-    var temp = createDiv(
-    '<h4> TRANSLATION </h4>'+
-    '<select id="translation-object">'+
-      '<option value="point">Point/Shape</option>'+
-      '<option value="line">Line</option>'+
-      '<option value="circle">Circle</option>'+
-    '</select>'+
-    '<p>translate x</p>'+
-    '<input id="translate-x" type="number" name="" value="" placeholder="Translate X">' +
-    '<p>translate y</p>'+
-    '<input id="translate-y" type="number" name="" value="" placeholder="Translate Y">' +
-    '<div id="but" class="button" onclick="translation.changeResult()">TRANSLATE</div>'
-    );
-    temp.id('vector-card');
-    parent.child(temp);
 
   }
 

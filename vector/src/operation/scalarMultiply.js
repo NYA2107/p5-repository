@@ -3,21 +3,26 @@ class ScalarMultiply{
   constructor(object, ratio){
     this.object = object;
     this.called = false;
+    this.toogleCalled = 0;
     this.ratio = ratio;
   }
 
   callMultiplyScalar(){
+    this.toogleCalled++;
+    if(this.toogleCalled == 1){
+      var parent = select('#operation-container');
+      var temp = createDiv(
+      '<h4> MULTIPLY </h4>'+
+      '<p>vector id</p>'+
+      '<input id="vector-m' + '" type="number" name="" value="" placeholder="Vector id">' +
+      '<p>multiplier</p>'+ 
+      '<input id="scalar-m' + '" type="number" name="" value="" placeholder="Multiplier">'
+      );
+      temp.id('vector-card');
+      parent.child(temp);
+    }
+    
     this.called = true;
-    var parent = select('#operation-container');
-    var temp = createDiv(
-    '<h4> MULTIPLY </h4>'+
-    '<p>vector id</p>'+
-    '<input id="vector-m' + '" type="number" name="" value="" placeholder="Vector id">' +
-    '<p>multiplier</p>'+ 
-    '<input id="scalar-m' + '" type="number" name="" value="" placeholder="Multiplier">'
-    );
-    temp.id('vector-card');
-    parent.child(temp);
   }
 
   drawResult(){

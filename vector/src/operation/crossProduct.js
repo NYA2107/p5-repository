@@ -3,23 +3,28 @@ class CrossProuct{
   constructor(object,ratio){
     this.object = object;
     this.ratio = ratio;
+    this.toogleCalled = 0;
     this.called = false;
   }
 
   callCrossProduct(){
+    this.toogleCalled++;
+    if(this.toogleCalled == 1){
+      var parent = select('#operation-container');
+      var temp = createDiv(
+      '<h4> CROSS PRODUCT </h4>'+
+      '<p>vector id</p>'+
+      '<input id="vector-cross-1' + '" type="number" name="" value="" placeholder="Vector id">' +
+      '<p>vector id</p>'+ 
+      '<input id="vector-cross-2' + '" type="number" name="" value="" placeholder="Vector id">' +
+      '<p>result</p>'+
+      '<input id="vector-cross-result' + '" type="number" name="" value="" placeholder="Result">'
+      );
+      temp.id('vector-card');
+      parent.child(temp);
+    }
     this.called = true;
-    var parent = select('#operation-container');
-    var temp = createDiv(
-    '<h4> CROSS PRODUCT </h4>'+
-    '<p>vector id</p>'+
-    '<input id="vector-cross-1' + '" type="number" name="" value="" placeholder="Vector id">' +
-    '<p>vector id</p>'+ 
-    '<input id="vector-cross-2' + '" type="number" name="" value="" placeholder="Vector id">' +
-    '<p>result</p>'+
-    '<input id="vector-cross-result' + '" type="number" name="" value="" placeholder="Result">'
-    );
-    temp.id('vector-card');
-    parent.child(temp);
+    
   }
 
   drawResult(){

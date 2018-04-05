@@ -747,5 +747,4 @@ class Reflection{
     endShape();
   }
 
-
 }
