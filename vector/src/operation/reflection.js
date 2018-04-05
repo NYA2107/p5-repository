@@ -6,38 +6,41 @@ class Reflection{
     this.line = line;
     this.circle = circle;
     this.toogle = 0;
-    this.called = false;
+    this.toogleCalled = 0;
     this.shadowPoint = new PointCollection(this.ratio);
     this.shadowLine =  new LineCollection(this.ratio);
     this.shadowCircle = new CircleCollection(this.ratio);
   }
 
   callReflection(){
-    this.called = true;
-    var parent = select('#operation-container');
-    var temp = createDiv(
-    '<h4> REFLECTION </h4>'+
-    '<p> OBJECT </p>'+
-    '<select id="reflection-object">'+
-      '<option value="point">Point/Shape</option>'+
-      '<option value="line">Line</option>'+
-      '<option value="circle">Circle</option>'+
-    '</select>'+
-    '<p> BASE </p>'+
-    '<select id="reflection-base">'+
-      '<option value="x-axis">x-axis</option>'+
-      '<option value="y-axis">y-axis</option>'+
-      '<option value="right-diagonal">y = x</option>'+
-      '<option value="left-diagonal">y = -x</option>'+
-      '<option value="O">(0,0)</option>'+
-      '<option value="xEquals">x</option>'+
-      '<option value="yEquals">y</option>'+
-    '</select>'+
-    '<p>x = k or y = k</p>'+
-    '<input id="equals" type="number" name="" value="" placeholder="k">'
-    );
-    temp.id('vector-card');
-    parent.child(temp);
+    this.toogleCalled++;
+    if(this.toogleCalled == 1){
+      var parent = select('#operation-container');
+      var temp = createDiv(
+      '<h4> REFLECTION </h4>'+
+      '<p> OBJECT </p>'+
+      '<select id="reflection-object">'+
+        '<option value="point">Point/Shape</option>'+
+        '<option value="line">Line</option>'+
+        '<option value="circle">Circle</option>'+
+      '</select>'+
+      '<p> BASE </p>'+
+      '<select id="reflection-base">'+
+        '<option value="x-axis">x-axis</option>'+
+        '<option value="y-axis">y-axis</option>'+
+        '<option value="right-diagonal">y = x</option>'+
+        '<option value="left-diagonal">y = -x</option>'+
+        '<option value="O">(0,0)</option>'+
+        '<option value="xEquals">x</option>'+
+        '<option value="yEquals">y</option>'+
+      '</select>'+
+      '<p>x = k or y = k</p>'+
+      '<input id="equals" type="number" name="" value="" placeholder="k">'
+      );
+      temp.id('vector-card');
+      parent.child(temp);
+    }
+    
   }
 
   toogleShape(){
@@ -45,7 +48,7 @@ class Reflection{
   }
 
   loop(){
-    if(this.called == false){
+    if(this.toogleCalled % 2 == 0){
       return;
     }
     else{
@@ -215,6 +218,7 @@ class Reflection{
         this.shadowCircle = new CircleCollection(this.ratio);
       }
     }
+    
   }
 
   xAxisLine(){

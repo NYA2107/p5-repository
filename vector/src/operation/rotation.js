@@ -4,28 +4,31 @@ class Rotation{
     this.point = point;
     this.line = line;
     this.circle = circle;
-    this.toogle = 0;
+    this.toogleCalled = 0;
     this.called = false;
   }
 
   callRotation(){
+    this.toogleCalled++;
+    if(this.toogleCalled == 1 ){
+      var parent = select('#operation-container');
+      var temp = createDiv(
+      '<h4> ROTATION </h4>'+
+      '<select id="rotation-object">'+
+        '<option value="point">Point/Shape</option>'+
+        '<option value="line">Line</option>'+
+        '<option value="circle">Circle</option>'+
+      '</select>'+
+      '<input id="rotation-x" type="number" name="" value="" placeholder="PRotation X">' +
+      '<input id="rotation-y" type="number" name="" value="" placeholder="PRotation Y">' +
+      '<p>angle</p>'+
+      '<input id="rotation-angle" type="number" name="" value="" placeholder="angle">' +
+      '<div id="but" class="button" onclick="rotation.changeResult()">ROTATE</div>'
+      );
+      temp.id('vector-card');
+      parent.child(temp);
+    }
     this.called = true;
-    var parent = select('#operation-container');
-    var temp = createDiv(
-    '<h4> ROTATION </h4>'+
-    '<select id="rotation-object">'+
-      '<option value="point">Point/Shape</option>'+
-      '<option value="line">Line</option>'+
-      '<option value="circle">Circle</option>'+
-    '</select>'+
-    '<input id="rotation-x" type="number" name="" value="" placeholder="PRotation X">' +
-    '<input id="rotation-y" type="number" name="" value="" placeholder="PRotation Y">' +
-    '<p>angle</p>'+
-    '<input id="rotation-angle" type="number" name="" value="" placeholder="angle">' +
-    '<div id="but" class="button" onclick="rotation.changeResult()">ROTATE</div>'
-    );
-    temp.id('vector-card');
-    parent.child(temp);
 
   }
 
@@ -51,6 +54,9 @@ class Rotation{
 
         this.currX = round((cos(this.rotationAngle)*(x-this.rotationX) - sin(this.rotationAngle)*(y-this.rotationY)) + this.rotationX);
         this.currY = round((sin(this.rotationAngle)*(x-this.rotationX) + cos(this.rotationAngle)*(y-this.rotationY)) + this.rotationY);
+
+        // this.currX = round((cos(this.rotationAngle)*(x-this.rotationX) + sin(this.rotationAngle)*(y-this.rotationY)) + this.rotationX);
+        // this.currY = round((-sin(this.rotationAngle)*(x-this.rotationX) + cos(this.rotationAngle)*(y-this.rotationY)) + this.rotationY);
 
         select('#point-x-'+(i+1)).value(this.currX);
         select('#point-y-'+(i+1)).value(this.currY);

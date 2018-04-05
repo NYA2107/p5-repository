@@ -43,7 +43,6 @@ function draw() {
 
   dotProduct.drawResult();
   crossProduct.drawResult();
-  reflection.loop();
   stroke(255);
   shape.drawResult();
   vectorController.drawResult();
@@ -52,6 +51,7 @@ function draw() {
   circleController.drawResult();
   sumVector.drawResult();
   scalarMultiply.drawResult();
+  reflection.loop();
   
   pop();
 
