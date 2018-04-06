@@ -15,6 +15,7 @@ var translation = new Translation(pointController,lineController,circleControlle
 var dilation = new Dilation(pointController,lineController,circleController);
 var rotation = new Rotation(pointController,lineController,circleController);
 var reflection = new Reflection(pointController,lineController,circleController,ratio)
+var shear = new Shear(pointController);
 
 function generateShape(){
   shape.callShape();
@@ -37,10 +38,10 @@ function draw() {
   translation.loop();
   dilation.loop();
   rotation.loop();
+  shear.loop();
   
   push();
   translate(width/2,height/2);
-
   dotProduct.drawResult();
   crossProduct.drawResult();
   stroke(255);
