@@ -1,5 +1,6 @@
 var canvas;
 var ratio = 20;
+var clippingStatus = false;
 var vectorController = new VectorController(ratio);
 var pointController = new PointController(ratio);
 var lineController = new LineController(ratio);
@@ -14,14 +15,17 @@ var dotProduct = new DotProduct(vectorController,ratio);
 var translation = new Translation(pointController,lineController,circleController);
 var dilation = new Dilation(pointController,lineController,circleController);
 var rotation = new Rotation(pointController,lineController,circleController);
-var reflection = new Reflection(pointController,lineController,circleController,ratio)
+var reflection = new Reflection(pointController,lineController,circleController,ratio);
 var shear = new Shear(pointController);
+
+var clippingPoint = new ClippingPoint(ratio);
+var clippingLine = new ClippingLine(lineController,ratio);
+var clippingPolygon = new ClippingPolygon(pointController,ratio);
 
 function generateShape(){
   shape.callShape();
   reflection.toogleShape();
 }
-
 
 function setup() {
   // put setup code here
@@ -45,14 +49,22 @@ function draw() {
   dotProduct.drawResult();
   crossProduct.drawResult();
   stroke(255);
-  shape.drawResult();
+  
   vectorController.drawResult();
-  pointController.drawResult();
-  lineController.drawResult();
+  //shape.drawResult();
+  
+  if(clippingStatus == false){
+  	lineController.drawResult();
+  	pointController.drawResult();
+  	shape.drawResult();
+  }
   circleController.drawResult();
   sumVector.drawResult();
   scalarMultiply.drawResult();
   reflection.loop();
+  clippingPoint.drawResult();
+  clippingLine.drawResult();
+  clippingPolygon.drawResult();
   
   pop();
 

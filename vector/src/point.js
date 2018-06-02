@@ -13,7 +13,7 @@ class Point{
   }
   drawPoint(name){
 
-    strokeWeight(15);
+    strokeWeight(10);
     point(this.x, this.y);
 
     push();
@@ -115,7 +115,7 @@ class Shape{
         return;
       }
       else{
-        fill(255,255,255,50);
+        fill(255,255,255,0);
         strokeWeight(2);
         beginShape();
           for(var i = 0; i< this.object.totalPoint; i++){

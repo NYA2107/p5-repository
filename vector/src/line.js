@@ -21,7 +21,7 @@ class Line{
     var y2 = this.y2;
     strokeWeight(2);
     line(x1,y1,x2,y2);
-    strokeWeight(15);
+    strokeWeight(10);
     point(this.x1, this.y1);
     point(this.x2, this.y2);
     push();
@@ -44,6 +44,9 @@ class LineCollection{
 
   addLine(x1,y1,x2,y2){
     this.list.push(new Line(x1,y1,x2,y2,this.ratio));
+  }
+  remLine(x1,y1,x2,y2){
+    this.list.pop();
   }
   updateLine(x1,y1,x2,y2,i){
     this.list[i] = new Line(x1,y1,x2,y2,this.ratio);
