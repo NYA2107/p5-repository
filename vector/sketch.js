@@ -29,7 +29,7 @@ function generateShape(){
 
 function setup() {
   // put setup code here
-  canvas = createCanvas(1000, 480);
+  canvas = createCanvas(720, 480);
   canvas.parent('app');
 }
 

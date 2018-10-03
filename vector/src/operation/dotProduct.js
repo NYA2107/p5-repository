@@ -41,10 +41,10 @@ class DotProduct{
         this.x2 = select('#vector-x-'+(this.vector2)).value()*1;
         this.y2 = select('#vector-y-'+(this.vector2)).value()*1;
 
-        this.resultCross = (this.x1*this.x2) + (this.y1*this.y2);
+        this.resultDot = (this.x1*this.x2) + (this.y1*this.y2);
 
         var result = select('#vector-dot-result');
-        result.value(this.resultCross);
+        result.value(this.resultDOt);
       }
     }
     else{
